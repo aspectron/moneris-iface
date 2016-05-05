@@ -3,6 +3,13 @@
 	<title>Moneries API demo using NodeJS</title>
 </head>
 <body>
+	<style type="text/css">
+	input{padding:5px; min-width: 200px;}
+	.red td{ background-color: red; background-color: rgba(255, 0, 0, 0.05); color: #000}
+	.green td{ background-color: #0F0; background-color: rgba(0, 255, 0, 0.05);color: #000}
+	.blue td{ background-color: blue; background-color: rgba(0, 0, 255, 0.05);color: #000}
+	
+	</style>
 	<form method="post" action="/">
 		<table>
 			<tr>
@@ -22,5 +29,52 @@
 			</tr>
 		</table>
 	</form>
+	<h2>Test Card Numbers</h2>
+	<table border="1" style="border-collapse:collapse" cellpadding="10">
+		<tr>
+			<th>Card Number</th>
+			<th> VERes</th>
+			<th> PARes </th>
+			<th>Action</th>
+		</tr>
+		<tr class="green">
+			<td>4012001037141112</td>
+			<td> Y</td>
+			<td> true </td>
+			<td>TXN – call function to create inLine window ACS – Send CAVV to eSELECTplus using “cavv_purchase” or “cavv_preauth” </td>
+		</tr>
+		<tr class="green">
+			<td>4242424242424242 </td>
+			<td>  Y </td>
+			<td>  true </td>
+			<td>  TXN – call function to create inLine window ACS – Send CAVV to eSELECTplus using “cavv_purchase” or “cavv_preauth” </td>
+		</tr>
+		<tr class="blue">
+			<td>4012001038488884</td>
+			<td>  U </td>
+			<td>  N/A </td>
+			<td>  Send transaction to eSELECTplus using regular “purchase” or “preauth”. Set crypt_type = 7</td>
+		</tr>
+		<tr class="blue">
+			<td>4012001038443335</td>
+			<td>  N </td>
+			<td>  N/A </td>
+			<td>  Send transaction to eSELECTplus using regular “purchase” or “preauth”. Set crypt_type = 6 </td>
+		</tr>
+		
+		<tr class="red">
+			<td>4012001037461114 </td>
+			<td>  Y </td>
+			<td>  false </td>
+			<td>  Card failed to authenticate, merchant may chose to send transaction or decline transaction. If transaction is sent, use crypt type = 7 </td>
+		</tr>
+
+		<tr class="red">
+			<td>374500261001009</td>
+			<td> Y </td>
+			<td> false </td>
+			<td>  submit 3D auth page with any value it will redirect to site with error message, Card failed to authenticate, merchant may chose to send transaction or decline transaction. If transaction is sent, use crypt type = 7 </td>
+		</tr>
+	</table>
 </body>
 </html>

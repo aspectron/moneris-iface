@@ -2,20 +2,21 @@
 <head>
 	<title>Title for Page</title>
 </head>
-<SCRIPT LANGUAGE="Javascript" >
-<!--
+<script type="text/javascript">
 	function OnLoadEvent(){
 		setTimeout(function(){
-			document.downloadForm.submit();
+			submitForm()
 		}, 5000)
 	}
--->
-</SCRIPT>
-<pre><%- JSON.stringify(result, null, "\t") %></pre>
+	function submitForm(){
+		document.downloadForm.submit();
+	}
+</script>
 
 <body onload="OnLoadEvent()">
+	<style type="text/css">button{padding: 15px; cursor: pointer; display: block; text-align: center; width: 50%;}</style>
 	<form name="downloadForm" action="<%=data.ACSUrl %>" method="POST">
-		<h1>Processing your 3-D Secure Transaction... Will redirect in 5 Seconds</h1>
+		<center><h1>Processing your 3-D Secure Transaction... Will redirect in 5 Seconds</h1></center>
 		<noscript>
 			<br><br>
 			<center>
@@ -34,6 +35,8 @@
 		<input type="hidden" name="PaReq" value="<%- data.PaReq %>">
 		<input type="hidden" name="MD" value='<%- data.MD %>'>
 		<input type="hidden" name="TermUrl" value="<%- data.TermUrl %>">
+		<center><button onclick="javascript: submitForm()">Submit it now</button></center>
 	</form>
+	<pre><%- JSON.stringify(result, null, "\t") %></pre>
 </body>
 </html>
