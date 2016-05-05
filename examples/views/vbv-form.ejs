@@ -32,7 +32,7 @@
 				<input type="submit" value="Submit">
 			</center>
 		</noscript>
-		<input type="hidden" name="PaReq" value="<%- data.PaReq %>">
+		<input type="hidden" name="PaReq" value="<%- data.PaReq.replace(/\n/, "") %>">
 		<input type="hidden" name="MD" value='<%- data.MD %>'>
 		<input type="hidden" name="TermUrl" value="<%- data.TermUrl %>">
 		<center><button onclick="javascript: submitForm()">Submit it now</button></center>
