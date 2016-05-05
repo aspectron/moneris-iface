@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Title for Page</title>
+</head>
+<SCRIPT LANGUAGE="Javascript" >
+<!--
+	function OnLoadEvent(){
+		setTimeout(function(){
+			document.downloadForm.submit();
+		}, 5000)
+	}
+-->
+</SCRIPT>
+<pre><%- JSON.stringify(result, null, "\t") %></pre>
+
+<body onload="OnLoadEvent()">
+	<form name="downloadForm" action="<%=data.ACSUrl %>" method="POST">
+		<h1>Processing your 3-D Secure Transaction... Will redirect in 5 Seconds</h1>
+		<noscript>
+			<br><br>
+			<center>
+				<h1>Processing your 3-D Secure Transaction</h1>
+				<h2>
+					JavaScript is currently disabled or is not supported
+					by your browser.
+				</h2>
+				<h3>Please click on the Submit button to continue
+					the processing of your 3-D secure
+					transaction.
+				</h3>
+				<input type="submit" value="Submit">
+			</center>
+		</noscript>
+		<input type="hidden" name="PaReq" value="<%- data.PaReq %>">
+		<input type="hidden" name="MD" value='<%- data.MD %>'>
+		<input type="hidden" name="TermUrl" value="<%- data.TermUrl %>">
+	</form>
+</body>
+</html>

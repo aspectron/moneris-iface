@@ -1,0 +1,19 @@
+{
+  "name": "moneris-iface",
+  "version": "0.0.1",
+  "description": "Moneris Iface",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "elementtree": "*",
+    "sax": "*",
+    "easyxml": "*",
+    "underscore": "*",
+    "request": "*"
+  },
+  "devDependencies":{
+    "express": "*",
+    "body-parser": "*",
+    "ejs": "*"
+  }
+}
