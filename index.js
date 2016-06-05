@@ -71,7 +71,7 @@ function IFace(options){
 			try{
 				var result 		= xmlParser.parse(body);
 			}catch(e){
-				return callback({error: e.message, body:body, e:e, res:res});
+				return callback({error: e.message, body:body, e:e, res:res, xmlerror: true});
 			}
 
 			callback(null, {result: result, res: res, body: body })
