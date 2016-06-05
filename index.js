@@ -66,7 +66,11 @@ function IFace(options){
 
 			// Convert to JSON
 			var xmlParser 	= new XMLParser();
-			var result 		= xmlParser.parse(body);
+			try{
+				var result 		= xmlParser.parse(body);
+			}catch(e){
+				return callback({error: e.message, body:body, e:e, res:res});
+			}
 
 			callback(null, {result: result, res: res, body: body })
 		});
