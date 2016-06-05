@@ -24,6 +24,7 @@ function IFace(options){
 	var self 		= this;
 	options = _.extend(options || {}, {
 		sandbox: true,
+		debug: false,
 		mpiEndPoint: "/mpi/servlet/MpiServlet",
 		mpgEndPoint: "/gateway2/servlet/MpgRequest",
 		sandboxUrl: "https://esqa.moneris.com",
@@ -52,7 +53,7 @@ function IFace(options){
 		}, data);
 
 		data = args.isMPI ? self.mpiRequestBuilder.render(data) : self.mpgRequestBuilder.render(data);
-		console.log("Sending\n" , baseUrl + endPoint, data);
+		options.debug && console.log("Sending\n" , baseUrl + endPoint, data);
 
 		var req = {
 			uri: baseUrl + endPoint,
@@ -61,6 +62,7 @@ function IFace(options){
 		};
 
 		request(req, function (err, res, body) {
+			options.debug && console.log("request result:".greenBG, body)
 			if (err)
 				return callback(err);
 
