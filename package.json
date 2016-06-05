@@ -1,6 +1,6 @@
 {
   "name": "moneris-iface",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Moneris Iface",
   "private": true,
   "main": "index.js",
